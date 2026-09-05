@@ -5,6 +5,12 @@ A web-based analytics platform that analyzes customer-support tickets and conver
 ## Screenshots
 
 <p align="center">
+  <img src="docs/screenshots/login.png" alt="Login" width="700"/>
+  <br/>
+  <em>Secure authentication — register, login and JWT-protected routes</em>
+</p>
+
+<p align="center">
   <img src="docs/screenshots/dashboard.png" alt="Analytics Dashboard" width="700"/>
   <br/>
   <em>Analytics Dashboard — KPI cards and interactive charts</em>
@@ -44,12 +50,6 @@ A web-based analytics platform that analyzes customer-support tickets and conver
   <img src="docs/screenshots/settings.png" alt="Settings" width="700"/>
   <br/>
   <em>Settings — user profile, theme and AI provider status</em>
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/login.png" alt="Login" width="700"/>
-  <br/>
-  <em>Secure authentication — register, login and JWT-protected routes</em>
 </p>
 
 ## Features
