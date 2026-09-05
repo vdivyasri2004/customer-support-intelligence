@@ -135,6 +135,17 @@ docker compose up --build
 
 > This is a development credential only. Do not use in production.
 
+## Quick Start (One-Command Scripts)
+
+Convenience scripts for running the full stack locally (SQLite by default — no database server needed):
+
+```bash
+./start.sh   # Creates tables, seeds data, starts backend (:8000) + frontend (:5173)
+./stop.sh    # Stops the running services
+```
+
+Logs are written to `/tmp/csi_backend.log` and `/tmp/csi_frontend.log`.
+
 ## Manual Setup
 
 ### 1. Database
