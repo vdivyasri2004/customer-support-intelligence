@@ -113,7 +113,7 @@ RAW SUPPORT DATA → DATA VALIDATION → DATA PROCESSING → ANALYTICS → ML/NL
 
 - Python 3.11+
 - Node.js 18+
-- PostgreSQL 14+
+- PostgreSQL 14+ (optional — SQLite is the default for local development)
 - Docker & Docker Compose (optional)
 - Ollama (optional, for AI features)
 
@@ -138,6 +138,8 @@ docker compose up --build
 ## Manual Setup
 
 ### 1. Database
+
+SQLite is used by default (no setup required). For PostgreSQL:
 
 ```bash
 # Start PostgreSQL and create database
@@ -177,7 +179,7 @@ Create a `.env` file based on `.env.example`:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DATABASE_URL` | `postgresql+psycopg://postgres:postgres@localhost:5432/csi_db` | PostgreSQL connection |
+| `DATABASE_URL` | `sqlite:///./csi.db` | Database connection (SQLite for dev, PostgreSQL for production) |
 | `JWT_SECRET_KEY` | `change-me-in-production` | JWT signing secret |
 | `JWT_ALGORITHM` | `HS256` | JWT algorithm |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | `60` | Token expiry |
@@ -241,12 +243,15 @@ FastAPI provides automatic OpenAPI documentation:
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
+| GET | `/api/health` | Health check |
 | POST | `/api/auth/register` | Register new user |
 | POST | `/api/auth/login` | Login |
 | GET | `/api/auth/me` | Current user |
 | GET | `/api/datasets` | List datasets |
 | POST | `/api/datasets/upload` | Upload CSV |
 | POST | `/api/datasets/sample` | Load sample data |
+| GET | `/api/datasets/{id}` | Get dataset details |
+| DELETE | `/api/datasets/{id}` | Delete dataset |
 | GET | `/api/datasets/{id}/analytics` | Get analytics |
 | GET | `/api/datasets/{id}/analytics/filters` | Get filter options |
 | GET | `/api/datasets/{id}/tickets` | List tickets |
@@ -255,8 +260,10 @@ FastAPI provides automatic OpenAPI documentation:
 | POST | `/api/datasets/{id}/ai/insights` | AI insights |
 | POST | `/api/datasets/{id}/ai/common-issues` | Common issues |
 | POST | `/api/datasets/{id}/ai/ask` | Ask question |
-| GET | `/api/analyses` | History |
+| GET | `/api/analyses` | History list |
+| GET | `/api/analyses/{id}` | Get analysis |
 | POST | `/api/analyses` | Save analysis |
+| DELETE | `/api/analyses/{id}` | Delete analysis |
 
 ## Testing
 
