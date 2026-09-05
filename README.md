@@ -146,6 +146,18 @@ Convenience scripts for running the full stack locally (SQLite by default — no
 
 Logs are written to `/tmp/csi_backend.log` and `/tmp/csi_frontend.log`.
 
+### Ports
+
+| Service | URL |
+|---------|-----|
+| Frontend (Vite) | http://localhost:5173 |
+| Backend API (FastAPI) | http://localhost:8000 |
+| API Docs (Swagger / ReDoc) | http://localhost:8000/docs |
+
+> The frontend runs with `strictPort: true`, so it **refuses to start** — rather
+> than silently switching ports — if another local dev server is already using
+> 5173. Stop the conflicting process first, then run `./start.sh`.
+
 ## Manual Setup
 
 ### 1. Database
