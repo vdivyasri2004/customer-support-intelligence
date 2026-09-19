@@ -12,6 +12,7 @@ venv/
 node_modules/
 dist/
 *.local
+*.tsbuildinfo
 
 # Environment
 .env
@@ -29,3 +30,5 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+# Generated Word docs (kept local only)
+docs/writeup/
